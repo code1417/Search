@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head> 
+      <title>SEARCH</title> 
+      <link href="css/main.css" rel="stylesheet" type="text/css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head> 
+
+<body> 
+<!--left--> 
+<div id="left" style="display: none;"> 
+      <div id="HM" onclick="display0()"></div> 
+      <div id="MDD"></div>
+      <br> 
+      <div class="content" onclick="saying()" id="c1">
+            <h2>一言</h2>
+            <p id="hitokoto" style="text-align:center; font-weight: bold; font-size: 16px;">--> Brokening --></p>
+      </div>
+      
+      <div class="content" id="c2">
+            <h2 id="city">天气</h2>
+            <p id="wea" style="text-align:center; font-weight: bold; font-size: 16px;">--> Brokening --></p>
+            <p id="updateTime" style="text-align:right; font-size: 8px;">--> Brokening --></p>
+      </div>
+      
+      <div class="content" id="c3">
+            <h2>历史上的今天</h2>
+            <p id="his" style="text-align:center; font-weight: bold; font-size: 16px;">--> Brokening --></p>
+      </div>
+		
+      <div class="content" id="c4">
+            <h2>笔记</h2><br>
+            <textarea onclick="displayfin()" id="note" type="text" placeholder="你与我最后的战场，亦或是世界起始的圣战">
+            </textarea>
+            <button id="finishbtn" style="background-color: rgb(255, 255, 255); display: none;" onclick="finish()">完成</button>
+      </div>
+      
+      <div class="content" style="text-align:left;" id="c5"> 
+            <h2>历史</h2> 
+            <p><b>10月18日</b><br>
+                  完善窗口大小验证；优化一堆有关Search的函数与算法；添加了奇奇怪怪的模糊；修补了天气API</p>
+            <p><b>10月11日 重写了页面样式</b><br>
+                  添加了窗口大小验证（未完善）</p>            
+            <p><b>10月1日 重写了left格式 </b><br>
+                  固定left格式，添加元素动画，优化代码</p>            
+            <p><b>9月26日 阶段性突破 </b><br>
+                  添加了bing搜索；完善了搜索引擎切换；引入了Google搜索(404)；替换壁纸；提取history.js；添加了tips样式</p> 
+            <p><b>9月19日 开始搭建 </b><br>
+                  设置壁纸并完成了毛玻璃css；完成了时间与日期的样式;引入了Google Open字体;设置了访问询问</p> 
+      </div>
+</div>
+<!--right--> 
+<div id="Search" style="position: fixed;top: 20% ;left: 50%; height:40px; width: 450px;"> 
+      <img src="https://pic.downk.cc/item/5f8adc591cd1bbb86b112250.png" style="position: absolute;top: 6px;left: 10px;height: 30px;width: 30px;" id="icobaidu"> 
+      <img src="https://pic.downk.cc/item/5f8adc591cd1bbb86b112252.png" style="position: absolute;top: 6px;left: 17px;height: 30px;width: 22px; display: none;" id="icobing"> 
+      <img src="https://pic.downk.cc/item/5f8adc591cd1bbb86b112257.png" style="position: absolute;top: 6px;left: 10px;height: 30px;width: 30px; display: none;" id="icogoogle"> 
+      <input id="input" autofocus> 
+      <div id="searches">
+      <img src="https://pic.downk.cc/item/5f8adc591cd1bbb86b112250.png" style="position: relative;top: 6px;left: 10px;height: 30px;width: 30px;" id="ico-baidu"> 
+      <img src="https://pic.downk.cc/item/5f8adc591cd1bbb86b112252.png" style="position: relative;top: 6px;left: 30px;height: 30px;width: 22px;" id="ico-bing"> 
+      <img src="https://pic.downk.cc/item/5f8adc591cd1bbb86b112257.png" style="position: relative;top: 6px;left: 52px;height: 30px;width: 30px;" id="ico-google"> 
+      </div>
+</div> 
+
+<div id="HM0" onclick="disapp()" style="font-size:15em; line-height:80px; height:80px; color: rgba(255,255,255,0.9); text-align:center; display: none; position: fixed; left:50%; top:35%; z-index:10; transform:translateY(-50%); transform:translateX(-50%);"></div>
+<div id="blackback"></div>
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="js/jQuery.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
