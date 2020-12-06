@@ -9,12 +9,15 @@ function searchpos(){
 var width = document.documentElement.clientWidth;
 var search = document.getElementById('Search');
 var input = document.getElementById('input');
-if(width < 1100){
-	search.style.cssText="margin: 0px;padding: 3px 10px 0px;background: rgb(0, 0, 0) border-box;overflow: hidden;border-radius: 0px;display: flex;z-index: 2;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);transition:box-shadow 0.3s;-webkit-transition:box-shadow 0.3s;position: fixed;top: 20% ;left: 50%; height:40px; width: 450px;visibility: visible;top:auto; bottom:0px; left:0px; width:100%; ";
+var right = document.getElementById('bookmasks');
+if(width < 1000){
+	search.style.cssText +="background: rgba(255,255,255, 0.1) border-box;border-radius: 0px;box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4); height:40px ;top:auto; bottom:0px; left:0px; width:100%;"
 	input.style.width = width - 50 + "px";
+	right.style.display = "none";
 }else{
-	search.style.cssText="margin: 0px;padding: 3px 10px 0px;background: rgb(0, 0, 0) border-box;overflow: hidden;border-radius: 20px;display: flex;z-index: 2;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);transition:box-shadow 0.3s;-webkit-transition:box-shadow 0.3s;position: fixed;top: 20% ;left: 50%; height:40px; width: 450px;visibility: visible;top:20%; bottom:auto; left:50%; width:450px; ";
-	input.style.width = "423px";
+	search.style.cssText +="background: rgba(255, 255, 255, 0.15) border-box;border-radius: 20px;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);height:40px;top:18%; bottom:auto; left:55%; width:450px;";
+	input.style.width = "420px";
+	right.style.display = "inline";
 }
 }
 
@@ -32,6 +35,7 @@ fetch('https://v1.hitokoto.cn')
     })
     .then(function (data) {
       var hitokoto = document.getElementById('hitokoto');
+      document.getElementById('loader_hit').remove();
       hitokoto.innerText = data.hitokoto; 
     })
     .catch(function (err) {
@@ -44,6 +48,7 @@ fetch('https://devapi.heweather.net/v7/weather/now?location=101180901&key=90d7d2
       return res.json();
     })
     .then(function (data){
+      document.getElementById('loader_wea').remove();
       document.getElementById('wea').innerText = data.now.text+" ｜ "+data.now.temp+" ℃ ｜ 湿度："+data.now.humidity+" % ｜ 云量："+data.now.cloud+" %"; 
       document.getElementById('updateTime').innerText = "更新时间："+data.updateTime; 
       document.getElementById('city').innerText = "天气：洛阳";
@@ -58,6 +63,7 @@ fetch('https://devapi.heweather.net/v7/weather/now?location=101180901&key=90d7d2
       return res.text();
     })
     .then(function (res) {
+      document.getElementById('loader_his').remove();
       var his = document.getElementById('his');
       his.innerText = res;
     })*/
@@ -121,9 +127,9 @@ function time()
       day = "周六";
   }
     document.getElementById("HM").innerHTML=Hours+":"+Minutes;
-  	document.getElementById("HM0").innerHTML=Hours+":"+Minutes+":"+Seconds;
+  	document.getElementById("HM0").innerHTML=Hours+":"+Minutes+" "+Seconds+"\"";
     document.getElementById("MDD").innerHTML=Time.getMonth()+1+"."+Time.getDate() + " "+day;
-}   window.setInterval("time()",1000);
+}   window.setInterval("time()",500);
   
   
     
@@ -151,4 +157,4 @@ $(".content").click(function (e) {
       left: ripple_x + 'px'
     })
     .addClass("rippleEffect");
-})
+});
