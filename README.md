@@ -13,7 +13,7 @@
 
 ## 说明
 ### 语言
-> `HTML`  `Css `  `JavaScript`
+> `HTML`  `Css`  `JavaScript`
 > `jQuery`  `Vue.js`
 
 ### API引用
