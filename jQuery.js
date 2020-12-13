@@ -1,6 +1,19 @@
 $(document).ready(function(){
-    //判断窗口大小
-    searchpos();
+
+$(function(){
+  $('#left').mouseenter(function(){
+    $(this).attr("class", "Open");
+    $('.content').attr("class", "Open content");
+    $('#HM').attr("class", "Open");
+    $('#MDD').attr("class", "Open");
+  });
+  $('#left').mouseleave(function(){
+    $(this).attr("class", "Close");
+    $('.content').attr("class", "Close content");
+    $('#HM').attr("class", "Close");
+    $('#MDD').attr("class", "Close");
+  });
+});
 
 	//笔记事件
 	$('#note').click(function(){
@@ -20,7 +33,8 @@ $(document).ready(function(){
 	$('#HM').click(function(){ hide(); });
 
 		$('#HM0').click(function(){ show(); });
-		$('#blackback').click(function(){ show(); });
+		$('#blurback').click(function(){ show(); });
+                $('#blackback').click(function(){ show(); });
 
         //搜索切换
         $("#icobaidu").mouseenter(function(){  searchchange();  });
@@ -97,16 +111,19 @@ function hide(){
     	$("#Search").fadeOut();
 		$("#bookmasks").fadeOut();
     	$("#HM0").fadeIn(500);
-    	$("#blackback").fadeIn(200);
+    	$("#blurback").fadeIn(200);
 		$("#left").fadeOut();
 }
 //隐藏后显示
 function show(){
-    $("#HM0").fadeOut(0);
+    $("#HM0").fadeOut(200);
 	$("#bookmasks").fadeIn(200);
 	$("#left").fadeIn(200);
     $("#Search").fadeIn(200);
-    $("#blackback").fadeOut(100);
+    $("#blurback").fadeOut(200);
+    $("#blackback").fadeOut(200);
+        $("#hisBox").fadeOut(300);
+    searchpos();
 }
 
 function finish(){
@@ -116,28 +133,5 @@ function finish(){
     document.getElementById('note').style.bottom  = "18px";
 } 
 
-$(".content").click(function (e) {
 
-  let button_left = $(this).offset().left; 
-  let button_top = $(this).offset().top; 
-  let button_width = $(this).width();
-  let button_height = $(this).height(); 
-
-  let ripple_width = 0;
-  ripple_width = button_width > button_height ? button_width : button_height;
-
-  let ripple_x = e.pageX - button_left - ripple_width / 2;
-  let ripple_y = e.pageY - button_top - ripple_width / 2;
-
-  $(this).prepend("<div class='ripple'></div>");
-
-  $(".ripple")
-    .css({
-      width: ripple_width + 'px',
-      height: ripple_width + 'px',
-      top: ripple_y + 'px',
-      left: ripple_x + 'px'
-    })
-    .addClass("rippleEffect");
-})
 

@@ -1,7 +1,9 @@
 var main = new Vue({
   el: '#body',
   data:{
-    content:[
+    history:[
+            {date: "12月13日", con: "重写了#left，统一了content设计，学习css3 Animation，更新了GitHub"},
+            {date: "12月7日", con: "使用Vue.js重写了部分页面，更新了GitHub"},
             {date: "11月22日", con: "引入了backdrop-filter"},
             {date: "10月18日", con: "完善窗口大小验证；优化一堆有关Search的函数与算法；添加了奇奇怪怪的模糊；修补了天气API"},
             {date: "10月11日 重写了页面样式 ", con: "添加了窗口大小验证（未完善）"},
@@ -10,18 +12,26 @@ var main = new Vue({
             {date: "9月19日 开始搭建 ", con: "设置壁纸并完成了毛玻璃css；完成了时间与日期的样式;引入了Google Open字体;设置了访问询问"},
            ],
     links:[
-           {name:"Baidu",link:"https://www.baidu.com/"},
-           {name:"Bing",link:"https://cn.bing.com/"},
+           {name:"热铁盒虚拟主机",link:"https://host.retiehe.com/"},
+           {name:"Bing壁纸",link:"https://bing.ioliu.cn/"},
            {name:"Bilibili",link:"https://www.bilibili.com/"},
-           {name:"Youku",link:"https://www.youku.com/"},
-           {name:"爱奇艺",link:"https://www.iqiyi.com/"},
-           {name:"腾讯视频",link:"https://v.qq.com/index.html"},
+           {name:"Pixiv",link:"http://www.pixiv.net/"},
+           {name:"Google学术镜像",link:"https://ac.scmor.com/"},
+           {name:"青柠起始页",link:"https://a.maorx.cn/"},
+           {name:"菜鸟教程",link:"https://m.runoob.com/"},
+           {name:"acexy",link:"https://imgs.acexy.cn"},
+           {name:"Github",link:"https://github.com/"},
            ],
     },
     methods:{
       togo: function(index){
         window.location.href = this.links[index].link;
-      }
+      },
+      showHis: function(){
+        $("#blackback").fadeIn(300);
+        $("#blurback").fadeIn(300);
+        $("#hisBox").fadeIn(300);
+      },
     },
 })
 

@@ -2,19 +2,11 @@
 <html>
 <head> 
       <title>SEARCH</title> 
-      <link href="main.css" rel="stylesheet" type="text/css"/>
+      <link href="css/main.css" rel="stylesheet" type="text/css"/>
+      <link href="css/animate.css" rel="stylesheet" type="text/css"/>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<style>
-@import url('https://fonts.font.im/css?family=Poppins');
-body{
-		background: black url(https://source.acexy.cn/view/XYUW7RQ) center center no-repeat fixed;
-        background-size: cover;
-		font-family: Poppins;
-        font-weight: 600;
-	    user-select: none;
-}
-</style>
+
 </head> 
 
 <body>
@@ -28,45 +20,52 @@ body{
       <div id="MDD"></div>
       <br> 
       <div class="content" onclick="saying()" id="c1">
-            <div class="content-l" style="margin: 15px 0px 0px -5px;">一言</div>
+            <div class="content-l" style="margin: 10px 0px -10px -5px;">一言</div>
             <p id="hitokoto" style="text-align:center; font-weight: bold; font-size: 16px;"><div class="loading_animation" id="loader_hit"></div></p>
       </div>
       
       <div class="content" id="c2">
-            <div id="city" class="content-l" style="margin: 15px 0px 0px -5px;">天气</div>
+            <div id="city" class="content-l" style="margin: 10px 0px -10px -5px;">天气</div>
             <p id="wea" style="text-align:center; font-size: 16px;"><div class="loading_animation" id="loader_wea"></div></p>
             <p id="updateTime" style="text-align:right; font-size: 8px;"></p>
       </div>
       
       <div class="content" id="c3">
-            <div class="content-l" style="margin: 15px 0px 0px -5px;">历史上的今天</div>
+            <div class="content-l" style="margin: 10px 0px -10px -5px;">历史上的今天</div>
             <p id="his" style="text-align:center; font-size: 16px;"><div class="loading_animation"  id="loader_his"></div></p>
       </div>
 		
       <div class="content" id="c4">
-            <div class="content-l" style="margin: 15px 0px 30px -5px;">笔记</div><br>
+            <div class="content-l" style="margin: 10px 0px 20px -5px;">笔记</div><br>
             <textarea onclick="displayfin()" id="note" type="text" placeholder="写些什么吧…">
             </textarea>
             <button id="finishbtn" style="display: none;">完成</button>
       </div>
-      
-      <div class="content" style="text-align:left;" id="c5">
-            <div class="content-l" style="margin: 15px 0px 0px -5px;">历史</div> 
-            <p v-for="c in content"><b>{{c.date}}</b><br>
-                  {{c.con}}</p>
+
+      <div class="content" style="text-align:left;" v-on:click="showHis">
+            <div class="content-l" style="margin: 10px 0px -10px -5px;">更新</div> 
+            <p><b>{{history[0].date}}</b><br>
+                  {{history[0].con}}</p>
       </div>
+
+      <p id="hitokoto_diaplay" style="width:80px;text-align:center; font-weight: bold; font-size: 4px;"><div class="loading_animation" id="loader_hit_display"></div></p>
+
 </div>
-<!--right-->
+
 
 <div id="bookmasks">
       <div class="content-l" v-for="(li,index) in links" v-on:click="togo(index)">{{li.name}}</div>
 </div>
 
-<div id="Search" style="position: fixed;top: 20% ;left: 55%; height:40px; width: 450px;"> 
-      <img src="https://source.acexy.cn/view/XYO2JzL" style="position: absolute;top: 6px;left: 10px;height: 30px;width: 30px;" id="icobaidu"> 
+<div id="Search"> 
+<!--      <img src="https://source.acexy.cn/view/XYO2JzL" style="position: absolute;top: 6px;left: 10px;height: 30px;width: 30px;" id="icobaidu"> 
       <img src="https://source.acexy.cn/view/XYO2I1k" style="position: absolute;top: 6px;left: 17px;height: 30px;width: 22px; display: none;" id="icobing"> 
       <img src="https://source.acexy.cn/view/XYOov5r" style="position: absolute;top: 6px;left: 10px;height: 30px;width: 30px; display: none;" id="icogoogle"> 
-      <input id="input" autofocus> 
+-->
+      <div class="content-i" id="icobaidu">Baidu</div>
+      <div class="content-i" style="display:none" id="icobing">Bing</div>
+      <div class="content-i" style="display:none" id="icogoogle">Google</div>
+      <input id="input" placeholder="Search" autofocus> 
       <div id="searches">
       <img src="https://source.acexy.cn/view/XYO2JzL" style="position: relative;top: 6px;left: 10px;height: 30px;width: 30px;" id="ico-baidu"> 
       <img src="https://source.acexy.cn/view/XYO2I1k" style="position: relative;top: 6px;left: 30px;height: 30px;width: 22px;" id="ico-bing"> 
@@ -75,12 +74,16 @@ body{
 </div> 
 
 
+<!--<div id="about">hhhhhh</div>-->
 <div id="HM0"></div>
+<div id="blurback"></div>
 <div id="blackback"></div>
-<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
-<script src="jQuery.js"></script>
-<script src="main.js"></script>
-<script src="vueobj.js"></script>
+<div class="hisBox" id="hisBox"><div class="content-l" style="margin: 15px 0px 0px -5px;">历史</div> <p v-for="c in history"><b>{{c.date}}</b><br>{{c.con}}</p></div>
 </div>
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="js/jQuery.js"></script>
+<script src="js/main.js"></script>
+<script src="js/vueobj.js"></script>
+
 </body>
 </html>

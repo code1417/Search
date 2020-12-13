@@ -4,29 +4,19 @@ window.onkeydown = function(ex){
     }
 }
 
-//窗口宽度判断
-function searchpos(){
-var width = document.documentElement.clientWidth;
-var search = document.getElementById('Search');
-var input = document.getElementById('input');
-var right = document.getElementById('bookmasks');
-if(width < 1000){
-	search.style.cssText +="background: rgba(255,255,255, 0.1) border-box;border-radius: 0px;box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4); height:40px ;top:auto; bottom:0px; left:0px; width:100%;"
-	input.style.width = width - 50 + "px";
-	right.style.display = "none";
-}else{
-	search.style.cssText +="background: rgba(255, 255, 255, 0.15) border-box;border-radius: 20px;box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);height:40px;top:18%; bottom:auto; left:55%; width:450px;";
-	input.style.width = "420px";
-	right.style.display = "inline";
-}
-}
-
-//窗口大小改变时执行
-window.onresize = function(){
-    searchpos();
-};
 
 
+fetch('https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var about = document.getElementById('about');
+      about.innerText = data.images[0].copyright; 
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
 
 //抓取一言数据
 fetch('https://v1.hitokoto.cn')
@@ -34,9 +24,11 @@ fetch('https://v1.hitokoto.cn')
       return res.json();
     })
     .then(function (data) {
-      var hitokoto = document.getElementById('hitokoto');
       document.getElementById('loader_hit').remove();
-      hitokoto.innerText = data.hitokoto; 
+      var sayIng = data.hitokoto; 
+      document.getElementById('loader_hit_display').remove();
+      document.getElementById('hitokoto').innerHTML = sayIng;
+      document.getElementById('hitokoto_display').innerHTML = sayIng; 
     })
     .catch(function (err) {
       console.error(err);
@@ -131,30 +123,3 @@ function time()
     document.getElementById("MDD").innerHTML=Time.getMonth()+1+"."+Time.getDate() + " "+day;
 }   window.setInterval("time()",500);
   
-  
-    
-	
-$(".content").click(function (e) {
-
-  let button_left = $(this).offset().left; 
-  let button_top = $(this).offset().top; 
-  let button_width = $(this).width();
-  let button_height = $(this).height(); 
-
-  let ripple_width = 0;
-  ripple_width = button_width > button_height ? button_width : button_height;
-
-  let ripple_x = e.pageX - button_left - ripple_width / 2;
-  let ripple_y = e.pageY - button_top - ripple_width / 2;
-
-  $(this).prepend("<div class='ripple'></div>");
-
-  $(".ripple")
-    .css({
-      width: ripple_width + 'px',
-      height: ripple_width + 'px',
-      top: ripple_y + 'px',
-      left: ripple_x + 'px'
-    })
-    .addClass("rippleEffect");
-});
