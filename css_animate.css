@@ -1,0 +1,116 @@
+  #left.Open {
+    animation: leftOpen .4s;
+    animation-fill-mode:forwards;
+  }
+  .content.Open {
+    animation: contentOpen .4s;
+    animation-fill-mode:forwards;
+    animation-delay: .1s;
+    display: block;
+  }
+  #HM.Open {
+    animation: HMOpen .4s;
+    animation-fill-mode:forwards;
+  }  
+  #MDD.Open {
+    animation: MDDOpen .4s;
+    animation-fill-mode:forwards;
+  }
+
+
+  @keyframes leftOpen {
+    from {width: 80px;background-color:rgba(255,255,255,0.1);}
+    to {width: 30%;background-color:rgba(255,255,255,0.2);}
+  }
+
+  @keyframes contentOpen {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes HMOpen {
+    0% {font-size:28px;opacity: 1;}
+    25% {opacity: 0.5;}
+    100% {font-size:60px;opacity: 1;}
+  }
+
+  @keyframes MDDOpen {
+    0% {font-size:12px;opacity: 1;}
+    25% {opacity: 0.5;}
+    100% {font-size:16px;opacity: 1;}
+  }
+
+/*-----------close-----------*/
+
+  #left.Close {
+    overflow: hidden;
+    animation: leftClose .4s;
+    animation-fill-mode:forwards;
+  }
+  .content.Close {
+    animation: contentClose .3s;
+    animation-fill-mode:forwards;
+  }
+  #HM.Close {
+    animation: HMClose .4s;
+    animation-fill-mode:forwards;
+  }  
+  #MDD.Close {
+    animation: MDDClose .4s;
+    animation-fill-mode:forwards;
+  }
+
+
+  @keyframes leftClose {
+    from {width: 30%;background-color:rgba(255,255,255,0.2);}
+    to {width: 80px;background-color:rgba(255,255,255,0.1);}
+  }
+
+  @keyframes contentClose {
+    from {opacity: 1;}
+    to {opacity: 0;}
+  }
+
+  @keyframes HMClose {
+    0% {font-size:60px;opacity: 0.5;}
+    100% {font-size:28px;opacity: 1;}
+  }
+
+  @keyframes MDDClose {
+    0% {font-size:16px;opacity: 0.5;}
+    100% {font-size:12px;opacity: 1;}
+  }
+
+
+
+
+
+
+#Search.on{
+    z-index: 15;
+    animation: Searchon .4s;
+    animation-fill-mode:forwards;
+}
+
+  @keyframes Searchon {
+    0% {}
+    100% {
+    top: 40%;
+    left: 50%; 
+	transform:translateX(-50%);
+    }
+  }
+
+#Search.Off{
+    z-index: 2;
+    animation: SearchOff .4s;
+    animation-fill-mode:forwards;
+}
+
+  @keyframes SearchOff {
+    0% {}
+    100% {
+    top: 20%;
+    left: 40%; 
+    }
+  }
