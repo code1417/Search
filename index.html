@@ -3,8 +3,10 @@
 <head> 
       <title>SEARCH</title> 
       <link href="css/main.css" rel="stylesheet" type="text/css"/>
+	  <link href="css/main2.css" rel="stylesheet" type="text/css"/>
       <link href="css/animate.css" rel="stylesheet" type="text/css"/>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
 </head> 
@@ -19,7 +21,7 @@
       <div id="HM" onclick="display0()"></div> 
       <div id="MDD"></div>
       <br> 
-      <div class="content" onclick="saying()" id="c1">
+      <div class="content" onclick="Saying()" id="c1">
             <div style="color:rgba(255,255,255,0.6);font-weight: bold; font-size:12px;margin: 10px 0px -5px 5px;">一言</div>
             <p id="hitokoto" style="text-align:center; font-weight: bold; font-size: 12px;"><div class="loading_animation" id="loader_hit"></div></p>
       </div>
@@ -47,9 +49,15 @@
       <div id="turntips" style="text-align:center; line-height:40px;">Hello!</div>
 </div>
 
-<div class="block" style="top:20%;margin: 100px 0 0 0;padding:5px 0px 10px 0px;">
-      <div class="content-l" v-for="(li,index) in links" v-on:click="togo(index)">{{li.name}}</div>
+<div class="block" style="top:20%;margin: 100px 0 0 0;padding:20px 0px 20px 80px;width:370px; height: 80px; " id="bookmasks">
+	<div id="bookmaskblur"></div>
+	<div class="bookmask" v-for="(li,index) in links" v-on:click="togo(index)">{{li.name}}
+	</div>
 </div>
+
+<!--<div class="block" style="top:20%;margin: 265px 0 0 0">
+      <div id="hotSea" style="text-align:center; line-height:40px;"></div>
+</div>-->
 
 <div id="Search"> 
       <div class="content-i" id="icobaidu">Baidu</div>
@@ -68,10 +76,17 @@
 <div id="HM0"></div>
 <div id="blurback"></div>
 <div id="blackback"></div>
-<div class="hisBox" id="hisBox"><div class="content-l" style="margin: 15px 0px 0px -5px;">历史</div> <p v-for="c in history"><b>{{c.date}}</b><br>{{c.con}}</p></div>
+<div class="hisBox" id="hisBox"><div class="content-l" style="margin: 15px 0px 0px -5px;width: auto; background-color:rgba(255,255,255,0.2);">历史</div> <p v-for="c in history"><b>{{c.date}}</b><br>{{c.con}}</p></div>
 </div>
-<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 
+<div id="menu">
+	<div class="EDIT" id="EditInMenuBookmasks">Edit</div>
+	<div class="DELETE" id="DeleteInMenuBookmasks">Delete</div>
+	<div class="divide"></div>
+	<div class="ADD" id="AddInMenuBookmasks">Add</div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/jQuery.js"></script>
 <script src="js/vueobj.js"></script>
