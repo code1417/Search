@@ -3,12 +3,13 @@
 
 
 **这是我自建的网站 
-->[Search](https://cod.rthe.net/)<-**
+->[Search](https://delta.rthe.xyz/)<-**
 
 感谢[热铁盒虚拟主机](https://host.retiehe.com)的支持
 
 
-## 12.24更新
+## 1.26更新
+> 右击菜单
 
 ## 说明
 #### 语言
