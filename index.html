@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>SEARCH</title>
+	<link href="css/main.css" rel="stylesheet" type="text/css" />
+	<link href="css/main2.css" rel="stylesheet" type="text/css" />
+	<link href="css/animate.css" rel="stylesheet" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+</head>
+
+<body>
+	<div id="back"></div>
+	<!--left-->
+	<div id="left">
+		<div id="HM" onclick="display0()"></div>
+		<div id="MDD"></div>
+		<br>
+		<div class="content" onclick="Saying()" id="c1">
+			<div style="color:rgba(255,255,255,0.6);font-weight: bold; font-size:12px;margin: 10px 0px -5px 5px;">一言
+			</div>
+			<p id="hitokoto" style="text-align:center; font-weight: bold; font-size: 12px;">
+				<div class="loading_animation" id="loader_hit"></div>
+			</p>
+		</div>
+
+		<div class="content" id="c2">
+			<div id="city"
+				style="color:rgba(255,255,255,0.6);font-weight: bold; font-size:12px;margin: 10px 0px -5px 5px;">天气
+			</div>
+			<p id="wea" style="text-align:center; font-size: 12px;">
+				<div class="loading_animation" id="loader_wea"></div>
+			</p>
+			<p id="updateTime" style="text-align:right; font-size: 8px;margin: -5px 0px 10px 0px;"></p>
+		</div>
+
+		<div class="content" id="c3">
+			<div style="color:rgba(255,255,255,0.6);font-weight: bold; font-size:12px;margin: 10px 0px -5px 5px;">历史上的今天
+			</div>
+			<p id="his" style="text-align:center; font-size: 12px;">
+				<div class="loading_animation" id="loader_his"></div>
+			</p>
+		</div>
+
+		<div class="content" style="text-align:left;" id="history">
+			<div style="color:rgba(255,255,255,0.6);font-weight: bold; font-size:12px;margin: 10px 0px -5px 5px;">更新
+			</div>
+		</div>
+
+	</div>
+	<!--right-->
+	<div class="block" style="top:20%;margin: 50px 0 0 0;">
+		<div id="turntips" style="text-align:center; line-height:40px;">Hello!</div>
+	</div>
+
+	<div class="block" style="top:20%;margin: 100px 0 0 0;padding:20px 0px 20px 80px;width:370px; height: 80px; "
+		id="bookmasks">
+		<div id="bookmaskblur"></div>
+	</div>
+
+
+	<div id="Search">
+		<div class="content-i" id="icobaidu">Baidu</div>
+		<div class="content-i" style="display:none" id="icobing">Bing</div>
+		<div class="content-i" style="display:none" id="icogoogle">Google</div>
+		<input id="input" placeholder="使用百度进行搜索..." autofocus>
+		<div id="searches">
+			<img src="https://source.acexy.cn/view/XYO2JzL" style="position: relative;top: 6px;left: 10px;height: 30px;width: 30px;" id="ico-baidu">
+			<img src="https://source.acexy.cn/view/XYO2I1k" style="position: relative;top: 6px;left: 30px;height: 30px;width: 22px;" id="ico-bing">
+			<img src="https://source.acexy.cn/view/XYOov5r" style="position: relative;top: 6px;left: 52px;height: 30px;width: 30px;" id="ico-google">
+      </div>
+		</div>
+
+		<div id="HM0"></div>
+		<div id="blurback"></div>
+		<div id="blackback"></div>
+		<div class="hisBox" id="hisBox">
+			<div class="content-l"
+				style="margin: 15px 0px 0px -5px;width: auto; background-color:rgba(255,255,255,0.2);">历史</div>
+		</div>
+
+
+		<div id="menu">
+			<div class="EDIT" id="EditInMenuBookmasks">Edit</div>
+			<div class="DELETE" id="DeleteInMenuBookmasks">Delete</div>
+			<div class="divide"></div>
+			<div class="ADD" id="AddInMenuBookmasks">Add</div>
+		</div>
+
+		<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+		<script src="js/Doc.Ready.js"></script>
+		<script src="js/Fetch.js"></script>
+		<script src="js/Functions.js"></script>
+		<script src="js/Others.js"></script>
+</body>
+
+</html>
